@@ -1,0 +1,34 @@
+10
+
+dir
+315
+http://svnhost/svn/NFDP/projects/NFDP-GATE/src/conf
+http://svnhost/svn/NFDP
+
+
+
+2017-03-09T07:01:14.094778Z
+303
+yujz
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4a7d3938-b46e-d04b-b437-52d74aa4daca
+
+log
+dir
+
+spring
+dir
+

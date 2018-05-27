@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false" scan="false" scanPeriod="30 seconds"> 
+
+  <!-- 控制台输出 console -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+    <encoder>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] [%class:%line] - %m%n</pattern>
+    </encoder>
+  </appender>
+  
+  <!-- 按日期区分的滚动日志 -->
+  <appender name="APP" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${user.dir}/logs/ctrip.log</file>
+    <encoder>
+    <!-- 按日期区分的滚动日志   <pattern>%d{yyyy-MM-dd HH:mm:ss} %level [%thread] [%class:%line] - %m%n</pattern> -->
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} - %m%n</pattern>
+    </encoder>
+     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${user.dir}/logs/ctrip.%d{yyyy-MM-dd}.zip</fileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+  </appender>
+  
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="APP" />
+  </root>
+  <!-- 第三方包输出日志级别控制 -->
+   <logger name="us.codecraft.webmagic.downloader" level="WARN"/>
+   <logger name="org.quartz" level="WARN"/>
+   
+</configuration>
