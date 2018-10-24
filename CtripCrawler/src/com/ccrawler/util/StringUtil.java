@@ -985,19 +985,7 @@ public class StringUtil {
 		return nullToEmpty(str).toLowerCase();
 	}
 	
-	/**
-	 *@desc 去除开头的86
-	 *@author haozk
-	 *@since 2015-1-23
-	 *@param account
-	 *@return String
-	 */
-	public static String remove86(String account) {
-		if(account.indexOf("86")==0){
-			account = account.substring(2, account.length());
-		}
-		return account;
-	}
+
 	
 	/**
 	 * 判断是否数字
@@ -1013,14 +1001,7 @@ public class StringUtil {
 		}
 	}
 	
-	/**
-	 *@desc 获取两个str的交集
-	 *@author haozk
-	 *@since 2015-2-3
-	 *@param strArray1  形如："WTT,PS,KK,DW,935,WX"
-	 *@param strArray2  形如："WTT,DW,935,WX"
-	 *@return String  形如："WTT,DW,935,WX"
-	 */
+	
 	public static String getSameElement(String strArray1,String strArray2){
 		if(strArray2==null) strArray2="";
 		String[] array2 = strArray2.split(",");
@@ -1036,14 +1017,7 @@ public class StringUtil {
 		return sb.toString();
 	}
 	
-	/**
-	 *@desc 
-	 *@author haozk
-	 *@param mainStr  形如："WTT,PS,KK,DW,935,WX"
-	 *@param str  形如："WTT,DW,935,WX,VPDN"
-	 *@since 2015-2-7
-	 *@return String 形如：""WTT,PS,KK,DW,935,WX,VPDN"
-	 */
+
 	public static String getUnionForeElement(String mainStr,String str){
 		if(str==null) str="";
 		String[] array = str.split(",");
@@ -1060,14 +1034,7 @@ public class StringUtil {
 		}
 	}
 	
-	/**
-	 *@desc 判断两个字符串是否元素是否相同(忽略顺序)
-	 *@author haozk
-	 *@since 2015-3-17
-	 *@param sourceTypeInit 形如：WTT,PS,VPDN
-	 *@param sourceType  形如：PS,WTT,VPDN
-	 *@return boolean
-	 */
+
 	public static boolean isSameSources(String sourceTypeInit, String sourceType) {
 		String[] arrayInit = (sourceTypeInit!=null) ? sourceTypeInit.split(","):null;
 		Set setInit = new HashSet(Arrays.asList(arrayInit));//先转为list，再转为set
@@ -1076,14 +1043,7 @@ public class StringUtil {
 		return setInit.equals(set);
 	}
 
-	/**
-	 *@desc 获取两者差集(获取前者有而后者没有的)
-	 *@author haozk
-	 *@since 2015-3-17
-	 *@param sourceTypeInit
-	 *@param unselectedSourceType
-	 *@return String
-	 */
+
 	public static String getDifferenceSet(String sourceTypeInit,
 			String unselectedSourceType) {
 		String[] arrayInit = (sourceTypeInit!=null) ? sourceTypeInit.split(","):new String[0];
@@ -1101,13 +1061,7 @@ public class StringUtil {
 		}
 		return sb.toString();
 	}
-	/**
-	 *@desc 将CLOB内容转换成String
-	 *@param Clob
-	 *@return String
-	 * @throws SQLException 
-	 * @throws IOException 
-	 */
+
 	public static String  clobToString(Clob clob) throws SQLException, IOException {
 		Reader inStream = clob.getCharacterStream();
 		char[]c = new char[(int)clob.length()];
@@ -1117,11 +1071,7 @@ public class StringUtil {
 		return res;
 		
 	}
-	/**
-	 *@desc 从字符串中提取所有的url链接
-	 *@param str 需提取链接的字符串
-	 *@return List url链接的列表
-	 */
+	
     public static List<String> getUrlsForStr(String str){
     	Pattern parttern = Pattern.compile("http://[\\w\\.\\-/:]+");
 		Matcher matcher = parttern.matcher(str);
