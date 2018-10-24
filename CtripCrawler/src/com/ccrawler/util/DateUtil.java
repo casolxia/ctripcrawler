@@ -240,7 +240,7 @@ public class DateUtil {
 	}	
 	
 	/**
-	 * @author 刘伯睿  2009-7-31
+	 * @author 
 	 * @see  根据时间获得分区名 这个是暂时的写法，因为这里只确定是1一个小时一个分区
 	 * 
 	 * */
@@ -261,8 +261,8 @@ public class DateUtil {
 	}
 	
 	/**
-	 * @author 刘伯睿  2009-7-31
-	 * @see  根据时间获得分区名 这个是暂时的写法，因为这里只确定是1一个小时一个分区
+	 * @author 
+	 * @see  
 	 * 
 	 * */
 	public static String getPartitionName(long dateTime,String protocol){
